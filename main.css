@@ -51,7 +51,7 @@ a:visited, a:link, a:hover {
 
 .menu {
     text-align: right;
-    font-size: 20px;
+    font-size: 23px;
     position: fixed; 
     bottom: 2rem;
     right: 1rem;
@@ -66,7 +66,7 @@ ul {
     border-radius: 100%;
     opacity: 0.2;
     position: absolute;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
 .about,.tab,.screensaver {
@@ -112,7 +112,7 @@ ul {
     
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 767px) {
     .watch,.about,.tab, .screensaver, .menu  {
         max-width: 250px;
         font-size: 15px;
@@ -121,9 +121,9 @@ ul {
     .timer{
         font-size: 30px;
     }
-    /* .ball {
+    .ball,.menu {
         display: none;
-    } */
+    }
     .menu {
         position: absolute;
     }
