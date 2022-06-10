@@ -1,4 +1,4 @@
-const timer = document.querySelector('#time');
+const timer = document.querySelector("#time");
 
 let time = 0,
   interval;
@@ -24,24 +24,23 @@ function toHHMMSS(time) {
   let minutes = Math.floor((time - hours * 3600) / 60);
   let seconds = time - hours * 3600 - minutes * 60;
 
-  hours = `${hours}`.padStart(2, '0');
-  minutes = `${minutes}`.padStart(2, '0');
-  seconds = `${seconds}`.padStart(2, '0');
+  hours = `${hours}`.padStart(2, "0");
+  minutes = `${minutes}`.padStart(2, "0");
+  seconds = `${seconds}`.padStart(2, "0");
 
-  return hours + ':' + minutes + ':' + seconds;
+  return hours + ":" + minutes + ":" + seconds;
 }
 
-window.onload = function() {
+window.onload = function () {
+  start();
+};
+
+document.addEventListener("visibilitychange", function (event) {
+  if (document.hasFocus) {
+    reset();
     start();
   }
-
-document.addEventListener('visibilitychange', function (event) {
-        if (document.hasFocus) {
-            reset();
-            start();
-        }
-    });
-
+});
 
 //Balls
 const colors = ["#3CC157", "#2AA7FF", "#6369D1", "#FCBC0F", "#F85F36"];
@@ -58,7 +57,7 @@ for (let i = 0; i < numBalls; i++) {
   ball.style.transform = `scale(${Math.random()})`;
   ball.style.width = `${Math.random() * 4}em`;
   ball.style.height = ball.style.width;
-  
+
   balls.push(ball);
   document.body.append(ball);
 }
@@ -66,20 +65,20 @@ for (let i = 0; i < numBalls; i++) {
 balls.forEach((el, i, ra) => {
   let to = {
     x: Math.random() * (i % 2 === 0 ? -11 : 11),
-    y: Math.random() * 12
+    y: Math.random() * 12,
   };
 
   let anim = el.animate(
     [
       { transform: "translate(0, 0)" },
-      { transform: `translate(${to.x}rem, ${to.y}rem)` }
+      { transform: `translate(${to.x}rem, ${to.y}rem)` },
     ],
     {
       duration: (Math.random() + 1) * 3000, // random duration
       direction: "alternate",
       fill: "both",
       iterations: Infinity,
-      easing: "ease-in-out"
+      easing: "ease-in-out",
     }
   );
 });
