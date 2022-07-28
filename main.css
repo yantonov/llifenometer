@@ -11,6 +11,7 @@ html {
 body {
   background-color: #f3efe0;
   font-family: "IBM Plex Mono", monospace;
+  overflow-x: hidden;
 }
 
 a:visited,
